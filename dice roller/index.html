@@ -7,7 +7,6 @@
 </head>
 <style>
     .dice-card{
-    height: 500px;
     width: 350px;
     border: 1px solid black;
     margin: 90px auto;
@@ -33,10 +32,36 @@
 </style>
 <body>
     <div class="dice-card">
-     <img src="dice.png" class="dice-img">
-     <button class="dice-btn">BUTTTON</button>
+     <img src="dice.png" class="dice-img" id="dice-roller">
+     <button type="button" class="dice-btn" onclick="diceroller()">BUTTTON</button>
     </div>
     
+<script>
+    function diceroller(){
+    const randomNumber = Math.floor(Math.random() * (7-1)) + 1    
+    const diceElement = document.getElementById("dice-roller")
 
+    switch(randomNumber){
+        case 1:
+            diceElement.src = "dice1.png"
+        break    
+        case 2:
+            diceElement.src = "dice2.png"
+        break 
+         case 3:
+            diceElement.src = "dice3.png"
+        break 
+         case 4:
+            diceElement.src = "dice4.png"
+        break 
+         case 5:
+            diceElement.src = "dice5.png"
+        break 
+         case 6:
+            diceElement.src = "dice6.png"
+        break 
+    }
+    }
+</script>
 </body>
 </html>
