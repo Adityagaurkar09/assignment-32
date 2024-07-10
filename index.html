@@ -10,7 +10,7 @@
     height: 500px;
     width: 350px;
     border: 1px solid black;
-    margin: 10px auto;
+    margin: 90px auto;
     border-radius: 10px;
   }  
   .product-img{
@@ -20,12 +20,15 @@
   }
   .btn-buy{
     height: 45px;
-    width: 120px;
+    width: 110px;
     display: flex;
-    border-radius: 10px;
+    border-radius: 20px;
     margin:  30px auto;
     padding: 14px 20px;
     cursor: pointer;
+    font-weight: 700;
+    background-color: rgb(62, 172, 172);
+    border: none;
   }
 .arith{
   height: 55px;
@@ -44,12 +47,29 @@
     <div class="product-card">
         <img class="product-img" src="bulb-on.png">
         <div class="arith-container">
-          <img src="minus.png" class="arith">
-          <span class="text">1</span>
-          <img src="plus.png" class="arith">
+          <img src="minus.png" class="arith" id="add" onclick="quantitychange(`dec`)">
+          <span class="text" id="quantity-text">1</span>
+          <img src="plus.png" class="arith" id="sub" onclick="quantitychange(`inc`)">
         </div>
         <button class="btn-buy">BUY NOW</button>
     </div>
     
+    <script>
+       function quantitychange(action){
+        const QuantityElement = document.getElementById("quantity-text")
+        let Quantity = parseInt(QuantityElement.innerText);
+        if(Quantity == 1 && action == `dec`){
+        alert("Quantity can not be less then 1")
+        return
+      }
+        else if (Quantity==6 && action == `inc`){
+        alert("quantity is can not be greater the 6")
+        return
+        }
+      QuantityElement.innerText = action ==`inc`? ++Quantity : --Quantity
+       }
+      
+  
+    </script>
 </body>
 </html>
